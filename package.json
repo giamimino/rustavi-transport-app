@@ -1,0 +1,25 @@
+{
+  "name": "rustavi-transport",
+  "version": "v0.0.1",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "description": "A mobile application for public transportation in Rustavi, Georgia. Provides offline access to bus routes, schedules, and transport information, with automatic data synchronization when an internet connection is available.",
+  "homepage": "https://github.com/giamimino/rustavi-transport-app#readme",
+  "bugs": {
+    "url": "https://github.com/giamimino/rustavi-transport-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giamimino/rustavi-transport-app.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "gia miminoshvili",
+  "scripts": {},
+  "devDependencies": {
+    "@actions/github": "^9.1.1",
+    "eslint": "^9.39.5",
+    "typescript": "~6.0.3"
+  }
+}
