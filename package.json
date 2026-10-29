@@ -16,7 +16,16 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "author": "gia miminoshvili",
-  "scripts": {},
+  "scripts": {
+    "client:start": "npm run start -w rustavi-transport-app",
+    "client:android": "npm run android -w rustavi-transport-app",
+    "client:ios": "npm run ios -w rustavi-transport-app",
+    "client:web": "npm run web -w rustavi-transport-app",
+    "client:lint:check": "npm run lint -w rustavi-transport-app",
+    "client:lint:fix": "npm run lint -w rustavi-transport-app -- --fix",
+    "client:format:check": "npm run format:check -w rustavi-transport-app",
+    "client:format:fix": "npm run format:fix -w rustavi-transport-app"
+  },
   "devDependencies": {
     "@actions/github": "^9.1.1",
     "eslint": "^9.39.5",
