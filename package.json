@@ -26,9 +26,21 @@
     "client:format:check": "npm run format:check -w rustavi-transport-app",
     "client:format:fix": "npm run format:fix -w rustavi-transport-app"
   },
+  "lint-staged": {
+    "client/src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --config client/eslint.config.js",
+      "prettier --write"
+    ],
+    "server/src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --config server/eslint.config.mjs",
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
     "@actions/github": "^9.1.1",
     "eslint": "^9.39.5",
-    "typescript": "~6.0.3"
+    "typescript": "~6.0.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0"
   }
 }
