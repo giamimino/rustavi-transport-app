@@ -21,10 +21,21 @@
     "client:android": "npm run android -w rustavi-transport-app",
     "client:ios": "npm run ios -w rustavi-transport-app",
     "client:web": "npm run web -w rustavi-transport-app",
+
+    "lint:check": "concurrently \"npm run client:lint:check\" \"npm run server:lint:check\"",
+    "lint:fix": "concurrently \"npm run client:lint:fix\" \"npm run server:lint:fix\"",
     "client:lint:check": "npm run lint -w rustavi-transport-app",
     "client:lint:fix": "npm run lint -w rustavi-transport-app -- --fix",
+    "server:lint:check": "npm run lint -w rustavi-transport-server",
+    "server:lint:fix": "npm run lint -w rustavi-transport-server -- --fix",
+
+    "format:fix": "concurrently \"npm run client:format:fix\" \"npm run server:format:fix\"",
+    "format:check": "concurrently \"npm run client:format:check\" \"npm run server:format:check\"",
     "client:format:check": "npm run format:check -w rustavi-transport-app",
-    "client:format:fix": "npm run format:fix -w rustavi-transport-app"
+    "client:format:fix": "npm run format:fix -w rustavi-transport-app",
+    "server:format:check": "npm run format:check -w rustavi-transport-server",
+    "server:format:fix": "npm run format:fix -w rustavi-transport-server"
+
   },
   "lint-staged": {
     "client/src/**/*.{js,jsx,ts,tsx}": [
@@ -38,6 +49,7 @@
   },
   "devDependencies": {
     "@actions/github": "^9.1.1",
+    "concurrently": "^10.0.6",
     "eslint": "^9.39.5",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
