@@ -1,6 +1,6 @@
 {
   "name": "rustavi-transport",
-  "version": "v0.0.1",
+  "version": "0.1.0",
   "workspaces": [
     "client",
     "server"

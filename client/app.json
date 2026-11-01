@@ -2,7 +2,7 @@
   "expo": {
     "name": "rustavi-transport-app",
     "slug": "rustavi-transport-app",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "orientation": "portrait",
     "scheme": "client",
     "userInterfaceStyle": "automatic",
