@@ -1,7 +1,7 @@
 import '../../global.css';
 import { Stack } from 'expo-router';
-import { PortalHost } from '@rn-primitives/portal';
 import { useFonts } from 'expo-font';
+import { AppProviders } from '../../providers/AppProviders';
 
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
@@ -30,9 +30,8 @@ export default function RootLayout() {
   }
 
   return (
-    <>
+    <AppProviders>
       <Stack />
-      <PortalHost />
-    </>
+    </AppProviders>
   );
 }
