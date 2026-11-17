@@ -1,7 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+@theme {
+  --font-poppins-black: 'Poppins-Black';
+  --font-poppins-black-italic: 'Poppins-BlackItalic';
+  --font-poppins: 'Poppins-Regular';
+  --font-poppins-italic: 'Poppins-Italic';
+  --font-poppins-light: 'Poppins-Light';
+  --font-poppins-light-italic: 'Poppins-LightItalic';
+  --font-poppins-medium: 'Poppins-Medium';
+  --font-poppins-medium-italic: 'Poppins-MediumItalic';
+  --font-poppins-semibold: 'Poppins-SemiBold';
+  --font-poppins-semibold-italic: 'Poppins-SemiBoldItalic';
+  --font-poppins-bold: 'Poppins-Bold';
+  --font-poppins-bold-italic: 'Poppins-BoldItalic';
+  --font-poppins-extrabold: 'Poppins-ExtraBold';
+  --font-poppins-extrabold-italic: 'Poppins-ExtraBoldItalic';
+  --font-poppins-extralight: 'Poppins-ExtraLight';
+  --font-poppins-extralight-italic: 'Poppins-ExtraLightItalic';
+  --font-poppins-thin: 'Poppins-Thin';
+  --font-poppins-thin-italic: 'Poppins-ThinItalic';
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -29,7 +50,7 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
   }
- 
+
   .dark:root {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
