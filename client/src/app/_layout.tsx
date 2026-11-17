@@ -3,6 +3,28 @@ import { Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import { AppProviders } from '../../providers/AppProviders';
 
+function RootNavigation() {
+  return (
+    <>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="me" options={{ title: 'Me' }} />
+        <Stack.Screen
+          name="notifications"
+          options={{ title: 'Notifications' }}
+        />
+        <Stack.Screen name="settings" options={{ title: 'Settings' }} />
+        <Stack.Screen name="busses" options={{ title: 'Busses' }} />
+        <Stack.Screen name="routes" options={{ title: 'Routes' }} />
+        <Stack.Screen name="schedules" options={{ title: 'Schedules' }} />
+        <Stack.Screen name="index" options={{ title: 'Home' }} />
+      </Stack>
+    </>
+  );
+}
+
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
     'Poppins-Black': require('@/assets/fonts/Poppins/Poppins-Black.ttf'),
@@ -24,14 +46,14 @@ export default function RootLayout() {
     'Poppins-Thin': require('@/assets/fonts/Poppins/Poppins-Thin.ttf'),
     'Poppins-ThinItalic': require('@/assets/fonts/Poppins/Poppins-ThinItalic.ttf'),
   });
-  
+
   if (!fontsLoaded && !fontError) {
     return null;
   }
 
   return (
     <AppProviders>
-      <Stack />
+      <RootNavigation />
     </AppProviders>
   );
 }
