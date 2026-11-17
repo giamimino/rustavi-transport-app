@@ -4,26 +4,38 @@
     "slug": "rustavi-transport-app",
     "version": "0.1.0",
     "orientation": "portrait",
-    "scheme": "client",
+    "scheme": "rustavitransportapp",
     "userInterfaceStyle": "automatic",
+    "platforms": [
+      "web",
+      "ios",
+      "android"
+    ],
+    "githubUrl": "https://github.com/giamimino/rustavi-transport-app",
+    "icon": "./assets/images/splash-icon.png",
     "ios": {
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/splash-icon.png",
+        "backgroundColor": "#2E2E2E"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.gia22.portfolioapp"
     },
     "web": {
-      "output": "server",
+      "output": "static",
+      "favicon": "./assets/images/favicon-32x32.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "imageWidth": 76
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#2E2E2E"
         }
       ]
     ],
