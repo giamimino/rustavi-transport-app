@@ -1,27 +1,36 @@
 import '../../global.css';
-import { Stack } from 'expo-router';
+import { SplashScreen, Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
-import { AppProviders } from '../../providers/AppProviders';
+import { AppProviders } from '@/providers/AppProviders';
+import { useTheme } from '@/providers/ThemeProvider';
+import { NAV_THEME, THEME } from '@/lib/theme';
+import { ThemeProvider as NavigationThemeProvider } from 'expo-router/react-navigation';
+import { useEffect } from 'react';
+import { StatusBar } from 'expo-status-bar';
 
-function RootNavigation() {
+SplashScreen.preventAutoHideAsync();
+
+function RootStack() {
+  const { resolvedTheme, isReady } = useTheme();
+
+  useEffect(() => {
+    if (isReady) SplashScreen.hideAsync();
+  }, [isReady]);
+
+  if (!isReady) return null; // splash stays up, so no flash of the wrong theme
+
+  const backgroundColor = THEME[resolvedTheme].background;
+
   return (
-    <>
+    <NavigationThemeProvider value={NAV_THEME[resolvedTheme]}>
+      <StatusBar style={resolvedTheme === 'dark' ? 'light' : 'dark'} />
       <Stack
         screenOptions={{
           headerShown: false,
-        }}>
-        <Stack.Screen name="me" options={{ title: 'Me' }} />
-        <Stack.Screen
-          name="notifications"
-          options={{ title: 'Notifications' }}
-        />
-        <Stack.Screen name="settings" options={{ title: 'Settings' }} />
-        <Stack.Screen name="busses" options={{ title: 'Busses' }} />
-        <Stack.Screen name="routes" options={{ title: 'Routes' }} />
-        <Stack.Screen name="schedules" options={{ title: 'Schedules' }} />
-        <Stack.Screen name="index" options={{ title: 'Home' }} />
-      </Stack>
-    </>
+          contentStyle: { backgroundColor },
+        }}
+      />
+    </NavigationThemeProvider>
   );
 }
 
@@ -53,7 +62,7 @@ export default function RootLayout() {
 
   return (
     <AppProviders>
-      <RootNavigation />
+      <RootStack />
     </AppProviders>
   );
 }
