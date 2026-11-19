@@ -7,6 +7,7 @@ import { NAV_THEME, THEME } from '@/lib/theme';
 import { ThemeProvider as NavigationThemeProvider } from 'expo-router/react-navigation';
 import { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
+import { Header } from '@/components/layout/header';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -28,8 +29,10 @@ function RootStack() {
         screenOptions={{
           headerShown: false,
           contentStyle: { backgroundColor },
+          animation: 'fade'
         }}
       />
+      <Header />
     </NavigationThemeProvider>
   );
 }
