@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented here.
 
+## [v0.2.0] - 2026-11-19
+
+### Added
+- Established application navigation and centralized providers.
+- Defined shared TypeScript types.
+- Reorganized application assets.
+- Introduced reusable UI components.
+- Implemented a theme system supporting light, dark, and system preferences.
+
 ## [v0.1.0] - 2026-11-01
 
 ### Development Environment
