@@ -18,6 +18,7 @@ module.exports = {
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
+          background: 'hsl(var(--secondary-background))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
@@ -38,6 +39,9 @@ module.exports = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
+          muted: {
+            foreground: 'var(--card-muted-foreground)'
+          }
         },
       },
       borderRadius: {
