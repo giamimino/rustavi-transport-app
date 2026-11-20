@@ -29,7 +29,7 @@ function RootStack() {
         screenOptions={{
           headerShown: false,
           contentStyle: { backgroundColor },
-          animation: 'fade'
+          animation: 'fade',
         }}
       />
       <Header />

@@ -12,6 +12,7 @@ type TabItemProps = {
   label: string;
   path: Href;
   subRoute: string | null;
+  isPrimary?: boolean;
 };
 
 const pages: (TabItemProps & { id: string })[] = [
@@ -22,6 +23,14 @@ const pages: (TabItemProps & { id: string })[] = [
     id: 'stops',
     icon: 'bus-stop',
     subRoute: null,
+  },
+  {
+    path: '/schedules/schedules',
+    label: 'Go',
+    id: 'primary',
+    icon: 'sign-direction',
+    subRoute: null,
+    isPrimary: true,
   },
   {
     path: '/busses/busses',
@@ -39,7 +48,7 @@ const pages: (TabItemProps & { id: string })[] = [
   },
 ];
 
-const TabItem = ({ icon, label, path, subRoute }: TabItemProps) => {
+const TabItem = ({ icon, label, path, subRoute, isPrimary }: TabItemProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const onPress = () => {
@@ -49,15 +58,24 @@ const TabItem = ({ icon, label, path, subRoute }: TabItemProps) => {
   return (
     <Pressable
       onPress={onPress}
-      className="flex-1 items-center justify-center py-2">
-      <View className="h-7 w-7 items-center justify-center">
+      className={clsx(
+        'flex-1 items-center justify-center',
+        isPrimary && '-translate-y-4',
+      )}>
+      <View
+        className={clsx(
+          'items-center justify-center',
+          isPrimary && 'bg-primary rounded-full w-[45px] h-[45px]',
+        )}>
         <Text
           className={clsx(
-            !(subRoute
-              ? pathname.startsWith(subRoute as string)
-              : pathname === path)
-              ? 'text-card-muted-foreground'
-              : 'text-primary',
+            isPrimary
+              ? 'text-primary-foreground '
+              : !(subRoute
+                    ? pathname.startsWith(subRoute as string)
+                    : pathname === path)
+                ? 'text-card-muted-foreground'
+                : 'text-primary',
           )}>
           <MaterialCommunityIcons name={icon} size={24} />
         </Text>
@@ -65,11 +83,13 @@ const TabItem = ({ icon, label, path, subRoute }: TabItemProps) => {
       <Text
         className={clsx(
           'mt-0.5 text-center text-xs font-poppins-medium',
-          !(subRoute
-            ? pathname.startsWith(path as string)
-            : pathname === path)
-            ? 'text-card-muted-foreground'
-            : 'text-primary',
+          isPrimary
+            ? 'text-primary font-poppins-semibold text-md'
+            : !(subRoute
+                  ? pathname.startsWith(subRoute as string)
+                  : pathname === path)
+              ? 'text-card-muted-foreground'
+              : 'text-primary',
         )}>
         {label}
       </Text>
@@ -78,7 +98,7 @@ const TabItem = ({ icon, label, path, subRoute }: TabItemProps) => {
 };
 
 export const BottomBar = () => (
-  <View className="flex-row px-3 py-1">
+  <View className="flex-row px-3">
     {pages.map(p => (
       <TabItem
         subRoute={p.subRoute}
@@ -86,6 +106,7 @@ export const BottomBar = () => (
         icon={p.icon}
         path={p.path}
         key={p.id}
+        isPrimary={p.isPrimary}
       />
     ))}
   </View>
